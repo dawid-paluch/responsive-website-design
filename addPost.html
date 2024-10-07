@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <link rel="stylesheet" href="css/reset.css">
+  <link rel="stylesheet" href="css/main.css">
+  <title>Web Dev Coursework</title>
+  <link rel="icon" type="image/x-icon" href="images/icon.png">
+
+  <script src="js/addPost.js" defer></script>
+</head>
+
+<body>
+    <header>
+        <div id="logo">
+        <p>Dawid</p>
+        </div>
+
+        <div id="nav">
+            <nav>
+                <a href="mainpage.html">Homepage</a>
+                <a href="blog.php">Blog</a>
+            </nav>
+        </div>
+    </header>
+
+    <form method="post" action="addPost.php">
+        <div id="formContainer">
+            <h1>
+                Add Post
+            </h1>
+            <label for="title">Title:</label>
+            <input type="text" id="title" name="title" placeholder="Enter post title" required>
+
+            <label for="content">Content:</label>
+            <textarea id="content" name="content" rows="5" required maxlength="10000" placeholder="Enter the message of your blog post." required></textarea>
+
+            <div class="formButtons">
+                <button type="submit" id="submitButton">Send</button>
+                <button type="submit" id="previewButton" formaction="previewPost.php">Preview</button>
+                <button type="reset" id="clearButton">Clear Form</button>
+            </div>
+        </div>
+    </form> 
+
+    <footer>
+        <div id="footerLinks">
+            <p>
+                <a href="mailto:dawid1paluch@gmail.com">Email</a>
+                |
+                <a href="https://www.linkedin.com/in/dawidpaluch/">LinkedIn</a>
+            </p>
+        </div>
+        <div id="footerText">
+            <p>
+                &copy; 2024 Dawid. All rights reserved.
+            </p>
+        </div>
+    </footer>
+</body>
+</html>
