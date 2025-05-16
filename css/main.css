@@ -5,33 +5,62 @@
 
 /*these are all of the general variables used throughout the design of the website*/
 :root{
-    --mainBackgroundColour:rgb(190, 190, 190);
-    --headerFooterColour:rgb(3, 8, 89);
-    --generalDivColour:rgb(0, 0, 0);
-    --innerDivColour:rgb(255, 255, 255);
-    --headingsColour:rgb(10, 50, 181);
-    --mainTextColour:rgb(178, 178, 178);
+    --mainBackgroundColour:#d1c8c8;
+    --headerFooterColour:#551e19;
+    --generalDivColour:rgb(25, 25, 25);
+    --innerDivColour:#faaf6d;
+    --headingsColour:#cf621a;
+    --mainTextColour:#d1c8c8;
     --darkTextColour:rgb(49, 49, 49);
-    --secondaryTextColour:rgb(0, 134, 175);
+    --secondaryTextColour:#F9943B;
 }
 
-/*general style rules applied for some general elements across all the pages*/
+/*general style rules applied for general elements*/
 body{
+    position: relative;
     font-family: "Ysabeau SC", sans-serif;
     background-color: var(--mainBackgroundColour);
     font-size: 1.2em;
     color:var(--mainTextColour);
+    height: 100vh;
+    min-height: 55em;
 }
 
+/*header and footer styles set*/
 header {
     position: fixed;
+    top: 0;
+    left: 0;
     display: grid;
     grid-template-columns: repeat(2,auto);
+    z-index: 10;
 }
 
 header, footer {
     background-color: var(--headerFooterColour);
     width: 100%;
+}
+
+footer {
+    position: absolute;
+    bottom: 0em;
+    left: 0;
+    display: grid;
+    grid-template-rows: repeat(2,auto);
+}
+
+footer div{
+    margin: auto;
+    padding: 0.5em 0em;
+}
+
+#smallScreen{
+    display: none;
+}
+
+/*styling of the header and footer contents*/
+footer a:link, footer a:visited{
+    padding: 0.2em 1em;
 }
 
 #logo {
@@ -47,252 +76,155 @@ header, footer {
     justify-content: flex-end;
 }
 
+/*general styling of the links used across the webpage*/
 a:link, a:visited{
     color: var(--mainTextColour);
     text-decoration: none;
     font-size: 1.1em;
-    padding: 1em;
+    padding: 0.6em 0.8em;
+    border: solid 0.1em transparent;
+    margin: 0 0.2em;
 }
 
 a:hover{
     color: var(--secondaryTextColour);
+    border-top-color: var(--secondaryTextColour);
+    border-bottom-color: var(--secondaryTextColour);
 }
 
-#displacementDiv{
-    background-color: var(--mainBackgroundColour);
-    height: 4em;
-    margin: 0;
-}
-
-body > div, section {
+/*styling for general page contents*/
+#pageTitle{
+    position: absolute;
+    top: 1.5em;
+    left: 50%;
+    transform: translateX(-50%);
+    font-family: "Lalezar";
+    font-size: 4em;
     width: 70%;
-    margin:auto;
+    color: var(--headingsColour);
+    text-align: center;
 }
 
-body > div{
-    background-color: var(--generalDivColour);
-    padding: 1em;
-    border-radius: 5px;
-    margin-bottom: 2em;
-}
-
-section,aside{
+section{
+    position: absolute;
+    top: 13em;
+    left: 50%;
+    transform: translateX(-50%);
     padding-top:6em;
     padding-bottom: 2em;
     display: grid;
     grid-template-columns: repeat(2,auto);
     color: var(--darkTextColour);
+    width: 70%;
+    margin:auto;
 }
 
-ul{
-    list-style: none;
+figure{
+    background-color: transparent;
+    text-align: center;
 }
 
-a{
-    text-decoration: none;
+img{
+    border-radius: 4em;
+    width: 20em;
 }
 
-h1{
+#mainPageText {
+    font-size: 1.2em;
+    font-family: "Cambay", sans-serif;
+    width: 70%;
+    margin: 0 auto;
+    position: relative;
+    top: 4em;
+    text-align: center;
+}
+
+/*styling for smaller screens*/
+@media (max-width: 1200px) {
+    body{
+        min-height: 50em;
+    }
+
+    #pageTitle{
+        font-size: 2.5em;
+        width: 90%;
+        top: 4em;
+    }
+
+    img{
+        width: 15em;
+    }
+
+    #mainPageText {
+        font-size: 0.9em;
+        width: 90%;
+    }
+}
+@media (max-width: 900px) {
+    body{
+        min-width: 3em;
+    }
+
+    #pageTitle{
+        font-size: 2em;
+        width: 90%;
+        top: 4em;
+    }
+
+    section{
+        display: block;
+        padding-top: 2em;
+    }
+
+    img{
+        left: 0%;
+        transform: translateX(0%);
+        width: 15em;
+        position: static;
+    }
+
+    figure{
+        margin: 0;
+        padding: 0;
+    }
+
+    #mainPageText {
+        font-size: 0.8em;
+        left: 50%;
+        transform: translateX(-50%);
+        position: relative;
+    }
+
+    header, footer {
+        font-size: 0.8em;
+    }
+}
+
+@media (max-width: 500px) {
+    body{
+        min-height: 65em;
+    }
+
+    #smallScreen{
+        display:block;
+    }
+
+    #bigScreen{
+        display:none;
+    }
+}
+
+/*styling for text existing further in the page*/
+/* h1{
     font-size: 2em;
     color: var(--headingsColour);
 }
 
-h2{
-    font-size: 1.5em;
+ul{
+    list-style: square;
+    margin-left: 1.5em;
 }
 
-footer {
-    display: grid;
-    grid-template-rows: repeat(2,auto);
-    vertical-align: bottom;
-}
-
-footer div{
-    margin: auto;
-    padding: 0.5em 0em;
-}
-
-/*these are the more specific style rules for the elements within the main website page*/
-
-figure{
-    background-color: var(--generalDivColour);
-    border-radius: 10%;
-    padding: 0.5em;
-    text-align: center;
-}
-
-figcaption{
-    padding: 0.5em;
-    font-family: "Lalezar", system-ui, -apple-system;
-}
-
-img{
-    border-radius: 10%;
-    width: 100%;
-}
-
-aside {
-    font-size: 1.5em;
-    padding: auto;
-    font-family: "Cambay", sans-serif;
-    width: 60%;
-    margin-left: 2em;
-}
-
-#aboutMe li{
-    font-weight: bold;
-}
-
-.experience, .education, .portfolio {
-    background-color: var(--innerDivColour);
-    color: var(--darkTextColour);
-    border-radius: 5px;
-    margin-top: 2em;
-    padding: 1em;
-}
-
-.experienceDate, .experiencePlace {
-    color: var(--secondaryTextColour);
-    font-size: 80%;
-}
-
-#generalSkills{
-    margin-top: 3em;
-}
-
-#portfolio{
-    margin-bottom: 4em;
-}
-
-/*these are the more specific style rules for the elements within the blog website page*/
-
-#blogArea{
-    margin-bottom: 3em;
-    display: grid;
-    grid-template-rows: auto;
-    margin-top: 0em;
-    padding-bottom: 2em;
-    text-align: center;
-}
-
-.blogEntry{
-    background-color: var(--innerDivColour);
-    color: var(--darkTextColour);
-    border-radius: 5px;
-    padding: 0.4em;
-    margin-top:1em;
-    text-align: left;
-}
-
-.blogEntryTop{
-    display: grid;
-    grid-template-columns: repeat(2,auto);
-}
-
-.blogEntryTop p{
-    text-align: right;
-    color: var(--secondaryTextColour);
-}
-
-#endOfBlog{
-    font-size: 1.5em;
-    text-align: center;
-    background-color: rgb(113, 153, 175);
-}
-
-#monthForm{
-    margin:1.25em;
-}
-
-#monthForm label{
-    font-size: 1.45em;
-    color: var(--secondaryTextColour);
-}
-
-#monthForm select{
-    font-size: 1.15em;
-    width: 10em;
-    font-family: "Cambay", sans-serif;
-}
-
-#monthForm button{
-    width: 8em;
-    font-size: 1.55em;
-}
-
-/*these are the more specific style rules for the elements within the login and addpost website pages*/
-
-form{
-    margin-bottom: 6em;
-}
-
-#formContainer{
-    padding-top: 7em;
-    padding:auto;
-    display: grid;
-    grid-template-columns: repeat(2,auto);
-    grid-template-rows: repeat(4,auto);
-}
-
-.formButtons{
-    grid-column: 1/3;
-    text-align: center;
-    margin: 1em;
-}
-
-.formButtons button{
-    margin: 0em 0.5em;
-}
-
-form h1{
-    grid-column: 1/3;
-    text-align: center;
-    font-size: 3em;
-}
-
-label{
-    text-align: right;
-    color:var(--darkTextColour);
-}
-
-label, input, textarea{
-    margin: 1.5em 2em;
-}
-
-label,input,button{
-    font-size: 1.8em;
-}
-
-button{
-    font-family: "Ysabeau SC", sans-serif;
-    width:10em;
-    margin-bottom:5em;
-    margin: 0em 2em;
-}
-
-textarea{
-    font-size: 1.5em;
-}
-
-input, textarea{
-    font-family: "Ysabeau SC", sans-serif;
-    width:80%;
-}
-
-#previewReply{
-    background-color: var(--generalDivColour);
-    text-align: center;
-}
-
-#previewReply h2{
-    font-size: 2.3em;
-}
-
-#previewReply a{
-    font-size: 1.75em;
-}
-
-/*Styles used by js for interactive forms*/
-.invalidInput{
-    background-color: var(--secondaryTextColour);
-}
+#mainpageH1{
+    color: var(--generalDivColour);
+} */
